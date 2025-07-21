@@ -1,0 +1,150 @@
+aside {
+	width: fit-content;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: start;
+	gap: 2rem;
+	border-radius: 0 2rem 0 0;
+	background: var(--sb-color);
+
+	max-width: 120px;
+	transition: 0.5s ease-in-out all;
+
+	h1 {
+		padding: 1rem;
+		font-size: 2.5rem;
+		background: linear-gradient(45deg, #ff7e5f, #b758ba); /* Gradient colors */
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		color: transparent;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+
+		.selector {
+			position: absolute;
+			background: var(--bg-color);
+			height: 2.5rem;
+			width: 100%;
+			transition: 0.5s ease-in-out all;
+			top: 0;
+
+			&::before {
+				content: "";
+				position: absolute;
+				width: 3rem;
+				height: 3rem;
+
+				top: calc(-3rem + 10px);
+				right: -10px;
+				border-radius: 0 0 2rem 0;
+				box-shadow: -10px -10px 0px 0px var(--bg-color) inset;
+				-webkit-box-shadow: -10px -10px 0px 0px var(--bg-color) inset;
+				-moz-box-shadow: -10px -10px 0px 0px var(--bg-color) inset;
+				transition: 0.5s ease-in-out box-shadow;
+			}
+
+			&::after {
+				content: "";
+				position: absolute;
+				width: 3rem;
+				height: 3rem;
+				bottom: calc(-3rem + 10px);
+				right: -10px;
+				border-radius: 0 2rem 0 0;
+				box-shadow: -10px 10px 0px 0px var(--bg-color) inset;
+				-webkit-box-shadow: -10px 10px 0px 0px var(--bg-color) inset;
+				-moz-box-shadow: -10px 10px 0px 0px var(--bg-color) inset;
+				transition: 0.5s ease-in-out box-shadow;
+			}
+		}
+		li {
+			display: flex;
+			justify-content: center;
+			gap: 0;
+			padding: 0.5rem;
+			cursor: pointer;
+			color: var(--fg-color);
+
+			span {
+				z-index: 10;
+			}
+
+			&:hover {
+				span {
+					font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+				}
+			}
+
+			&.selected {
+				// background: var(--bg-color);
+				position: relative;
+				transition: 0.5s ease-in-out background;
+				span {
+					font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+					background: linear-gradient(
+						45deg,
+						#ff7e5f,
+						#b758ba
+					); /* Gradient colors */
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+					background-clip: text;
+					color: transparent;
+				}
+
+				p {
+					background: linear-gradient(
+						45deg,
+						#ff7e5f,
+						#b758ba
+					); /* Gradient colors */
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+					background-clip: text;
+					color: transparent;
+				}
+			}
+		}
+	}
+
+	&.open {
+		max-width: 500px;
+
+		h1 {
+			padding: 1rem 2rem;
+		}
+
+		li {
+			justify-content: start;
+			gap: 0.8rem;
+			padding: 0.5rem 2rem 0.5rem 2rem;
+			cursor: pointer;
+		}
+
+		p {
+			animation: fadeUp 0.6s ease-out forwards;
+		}
+
+		@media (max-width: 500px) {
+			position: fixed;
+			// width: 100%;
+		}
+	}
+}
+
+@keyframes fadeUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

@@ -1,0 +1,16 @@
+header {
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	padding: 1rem 2rem;
+	gap: 1rem;
+
+	.toggle-menu,
+	.toggle-theme {
+		span {
+			cursor: pointer;
+			font-size: 2rem;
+			color: var(--fg-color);
+		}
+	}
+}
