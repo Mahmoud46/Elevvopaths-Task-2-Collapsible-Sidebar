@@ -22,6 +22,8 @@
 #root {
 	height: 100dvh;
 	position: relative;
+	overflow-x: hidden;
+	overflow-y: auto;
 	display: flex;
 	background: var(--bg-color);
 	transition: 0.5s ease-in-out all;

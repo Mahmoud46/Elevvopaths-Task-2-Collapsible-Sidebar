@@ -19,25 +19,28 @@ export default function Header({
 
 	return (
 		<header>
-			<div
-				className={styles["toggle-menu"]}
-				onClick={() => setIsSidebarOpen((prev) => !prev)}
-			>
-				<span className="material-symbols-outlined">
-					{isSidebarOpen ? "close" : "menu"}
-				</span>
-			</div>
+			<h1>tf.</h1>
+			<div className={styles.btns}>
+				<div
+					className={styles["toggle-menu"]}
+					onClick={() => setIsSidebarOpen((prev) => !prev)}
+				>
+					<span className="material-symbols-outlined">
+						{isSidebarOpen ? "close" : "menu"}
+					</span>
+				</div>
 
-			<div
-				className={styles["toggle-theme"]}
-				onClick={() => {
-					setDataTheme((prev) => (prev == "dark" ? "light" : "dark"));
-					toggleTheme();
-				}}
-			>
-				<span className="material-symbols-outlined">
-					{dataTheme == "dark" ? "brightness_empty" : "dark_mode"}
-				</span>
+				<div
+					className={styles["toggle-theme"]}
+					onClick={() => {
+						setDataTheme((prev) => (prev == "dark" ? "light" : "dark"));
+						toggleTheme();
+					}}
+				>
+					<span className="material-symbols-outlined">
+						{dataTheme == "dark" ? "brightness_empty" : "dark_mode"}
+					</span>
+				</div>
 			</div>
 		</header>
 	);

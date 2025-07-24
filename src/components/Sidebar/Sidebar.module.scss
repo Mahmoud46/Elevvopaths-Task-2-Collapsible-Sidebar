@@ -7,10 +7,10 @@ aside {
 	gap: 2rem;
 	border-radius: 0 2rem 0 0;
 	background: var(--sb-color);
-
-	max-width: 120px;
+	width: 74px;
+	overflow: hidden;
 	transition: 0.5s ease-in-out all;
-
+	z-index: 999;
 	h1 {
 		padding: 1rem;
 		font-size: 2.5rem;
@@ -19,6 +19,7 @@ aside {
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
 		color: transparent;
+		transition: 0.5s ease-in-out all;
 	}
 
 	ul {
@@ -65,12 +66,18 @@ aside {
 		}
 		li {
 			display: flex;
-			justify-content: center;
+			justify-content: start;
 			gap: 0;
 			padding: 0.5rem;
+			padding-left: 1.5rem;
 			cursor: pointer;
 			color: var(--fg-color);
-
+			gap: 0.8rem;
+			transition: 0.5s ease-in-out all;
+			p {
+				opacity: 0;
+				transition: 0.5s ease-in-out all;
+			}
 			span {
 				z-index: 10;
 			}
@@ -84,7 +91,8 @@ aside {
 			&.selected {
 				// background: var(--bg-color);
 				position: relative;
-				transition: 0.5s ease-in-out background;
+				transition: 0.5s ease-in-out background padding;
+
 				span {
 					font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
 					background: linear-gradient(
@@ -113,9 +121,13 @@ aside {
 		}
 	}
 
-	&.open {
-		max-width: 500px;
+	@media (max-width: 500px) {
+		position: fixed;
+		left: -74px;
+	}
 
+	&.open {
+		width: 200px;
 		h1 {
 			padding: 1rem 2rem;
 		}
@@ -128,23 +140,12 @@ aside {
 		}
 
 		p {
-			animation: fadeUp 0.6s ease-out forwards;
+			opacity: 1;
 		}
 
 		@media (max-width: 500px) {
 			position: fixed;
-			// width: 100%;
+			left: 0;
 		}
-	}
-}
-
-@keyframes fadeUp {
-	from {
-		opacity: 0;
-		transform: translateY(20px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
 	}
 }

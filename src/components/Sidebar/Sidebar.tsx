@@ -37,7 +37,7 @@ export default function Sidebar({
 						onClick={() => selectActive(i)}
 					>
 						<span className="material-symbols-outlined">{link.icon}</span>
-						{isSidebarOpen && <p>{link.title}</p>}
+						<p>{link.title}</p>
 					</li>
 				))}
 			</ul>

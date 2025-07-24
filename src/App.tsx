@@ -15,7 +15,9 @@ function App(): ReactNode {
 					setIsSidebarOpen={setIsSidebarOpen}
 				/>
 				<Home />
-				<p className="copy">Copyright &copy; Mahmoud Zakaria</p>
+				<p className="copy">
+					&copy; 2025 Mahmoud Zakaria. All rights reserved.
+				</p>
 			</main>
 		</>
 	);
